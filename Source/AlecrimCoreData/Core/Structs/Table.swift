@@ -27,7 +27,7 @@ public struct Table<T: NSManagedObject>: TableType {
     
     public init(dataContext: NSManagedObjectContext) {
         //
-        let managedObjectClassName = NSStringFromClass(T.self)
+        let managedObjectClassName = NSStringFromClass(T.self).componentsSeparatedByString(".").last! as String
         
         let entityDescription: NSEntityDescription
         if let cachedEntityDescription = cachedEntityDescriptions[managedObjectClassName] {
